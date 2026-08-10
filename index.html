@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel = "icon" href="./assests/logo.png">
+    <title> Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+ 
+        <!-- ================= SIDEBAR ================= -->
+        <div class="sidebar">
+ 
+            <div class="nav">
+                <div class="nav-option active" data-view="home">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#">Home</a>
+                </div>
+ 
+                <div class="nav-option" data-view="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+            </div>
+ 
+            <div class="Library">
+                <div class="option">
+                    <div class="library-option">
+                        <i class="fa-solid fa-book-bookmark lib-icon"></i>
+                        <a href="#">Your Library</a>
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-plus" id="createPlaylistIcon" title="Create playlist"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+ 
+                <div class="lib-box">
+                    <div class="box">
+                        <p class="box-p1">Create your first playlist</p>
+                        <p class="box-p2">It's easy, we'll help you</p>
+                        <button class="badge" id="createPlaylistBtn">Create playlist</button>
+                    </div>
+                    <div class="box">
+                        <p class="box-p1">Let's find some podcasts to follow</p>
+                        <p class="box-p2">We'll keep you updated on new episodes</p>
+                        <button class="badge" id="browsePodcastBtn">Browse podcasts</button>
+                    </div>
+                </div>
+ 
+                <!-- Dynamically created playlists appear here -->
+                <ul class="playlist-list" id="playlistList"></ul>
+            </div>
+        </div>
+ 
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="main-content">
+ 
+            <div class="sticky-bar">
+                <div class="sticky-nav-icons">
+                    <i class="fa-solid fa-chevron-left nav-arrow"></i>
+                    <i class="fa-solid fa-chevron-right nav-arrow hide"></i>
+                </div>
+ 
+                <!-- search box, shown only in Search view -->
+                <div class="search-wrap" id="searchWrap">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="What do you want to play?">
+                </div>
+ 
+                <div class="sticky-nav-options">
+                    <button class="badge nav-items hide">Explore Premium</button>
+                    <button class="badge nav-items dark-badge"><i class="fa-regular fa-circle-down" style="margin-right: 5px;"></i>Install App</button>
+                    <i class="fa-regular fa-user nav-items" style="margin-top: 1rem;"></i>
+                </div>
+            </div>
+ 
+            <h2>Recently played</h2>
+            <div class="cards-container">
+ 
+                <div class="card" data-title="Top-50 Global" data-artist="Your daily update of the most played tracks" data-duration="245">
+                    <img src="./assests/card1img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Top-50 Global</p>
+                    <p class="card-info">Your daily update of the most played tracks</p>
+                </div>
+
+ 
+                <div class="card" data-title="KALYANI (with Shreya Ghoshal) - Remix" data-artist="ARJN, KIDS, FORTY4, Shreya Ghoshal" data-duration="221"> 
+                    <img src="./assests/kalyani.png" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">KALYANI(with Shreya Ghoshal)-Remix</p>
+                    <p class="card-info shreya">ARJN, KIDS, FORTY4, Shreya Ghoshal</p>
+                </div>
+ 
+                <div class="card" data-title="Dai Dai - FIFA World Cup Official Song" data-artist="Shakira X Burna Boy" data-duration="198">
+                    <img src="./assests/daidai" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Dai Dai - FIFA WorldCup Official Song</p>
+                    <p class="card-info">Shakira X Burna Boy</p>
+                </div>
+ 
+                <div class="card" data-title="SIX" data-artist="Guru Randhawa" data-duration="187">
+                    
+                    <img src="./assests/six" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">SIX</p>
+                    <p class="card-info">Guru Randhawa</p>
+                </div>
+            </div>
+ 
+            <h2>Trending songs</h2>
+            <div class="cards-container">
+ 
+                <div class="card" data-title="Mahiye Jinna Sohna" data-artist="Darshan Raval" data-duration="232">
+                    <img src="./assests/card2img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Mahiye Jinna Sohna</p>
+                    <p class="card-info">Darshan Raval</p>
+                </div>
+ 
+                <div class="card" data-title="Mere Pas Tum Ho" data-artist="Rahat Fateh Ali Khan - Lofi Mix" data-duration="256">
+                    <img src="./assests/card3img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Mere Pas Tum Ho</p>
+                    <p class="card-info">Rahat Fateh Ali Khan-Lofi Mix</p>
+                </div>
+ 
+                <div class="card" data-title="NA READY (from LEO Album)" data-artist="Vijay Thalapathy" data-duration="211">
+                    <img src="./assests/card4img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">NA READY(from LEO Album)</p>
+                    <p class="card-info">Vijay Thalapathy</p>
+                </div>
+ 
+                <div class="card" data-title="Taare" data-artist="Deewar Ke Uss Paar - Farak" data-duration="203">
+                    <img src="./assests/taare" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Taare</p>
+                    <p class="card-info">Deewar Ke Uss Paar - Farak</p>
+                </div>
+ 
+                <div class="card" data-title="Big Plans" data-artist="Dhanda Nyoliwala" data-duration="176">
+                    <img src="./assests/bigplans" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Big Plans</p>
+                    <p class="card-info">Dhanda Nyoliwala</p>
+                </div>
+            </div>
+ 
+            <h2>Popular artists</h2>
+            <div class="cards-container">
+ 
+                <div class="artist-card" data-title="Pritam Radio" data-artist="Pritam" data-duration="240">
+                    <img src="./assests/pritam" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Pritam</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Arijit Singh Radio" data-artist="Arijit Singh" data-duration="252">
+                    <img src="./assests/arijit" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Arijit Singh</p>
+                </div>
+ 
+                <div class="artist-card" data-title="A.R Rahman Radio" data-artist="A.R Rahman" data-duration="264">
+                    <img src="./assests/rahman" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">A.R Rahman</p>
+                </div>
+ 
+                <div class="artist-card" data-title="KK Radio" data-artist="KK" data-duration="219">
+                   <img src="./assests/KK" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">KK</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Shreya Ghoshal Radio" data-artist="Shreya Ghoshal" data-duration="228">
+                    <img src="./assests/shreya" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Shreya Ghoshal</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Sunidhi Chauhan Radio" data-artist="Sunidhi Chauhan" data-duration="215">
+                    <img src="./assests/sunidhi" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Sunidhi Chauhan</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Sachin-Jigar Radio" data-artist="Sachin-Jigar" data-duration="207">
+                    <img src="./assests/sachin-jigar" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Sachin-Jigar</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Sachet-Parampara Radio" data-artist="Sachet-Parampara" data-duration="199">
+                    <img src="./assests/sachet" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Sachet-Parampara</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Atif Aslam Radio" data-artist="Atif Aslam" data-duration="238">
+                    <img src="./assests/atif" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Atif Aslam</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Udit Narayan Radio" data-artist="Udit Narayan" data-duration="244">
+                    <img src="./assests/udit2" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Udit Narayan</p>
+                </div>
+ 
+                <div class="artist-card" data-title="Vishal-Shekhar Radio" data-artist="Vishal-Shekhar" data-duration="223">
+                    <img src="./assests/vishal" class="card-img artist-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Vishal-Shekhar</p>
+                </div>
+            </div>
+ 
+            <h2>Featured charts</h2>
+            <div class="cards-container">
+ 
+                <div class="card" data-title="Top Songs - Global" data-artist="Spotify" data-duration="240">
+                    <img src="./assests/card5img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Top Songs-Global</p>
+                </div>
+ 
+                <div class="card" data-title="Top Songs - India" data-artist="Spotify" data-duration="233">
+                    <img src="./assests/card6img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Top Songs-India</p>
+                </div>
+ 
+                <div class="card" data-title="Top 50 - Global" data-artist="Spotify" data-duration="250">
+                    <img src="./assests/card1img.jpeg" class="card-img">
+                    <button class="card-play-btn"><i class="fa-solid fa-play"></i></button>
+                    <p class="card-title">Top 50-Global</p>
+                </div>
+            </div>
+ 
+            <div class="footer">
+                <div class="line"></div>
+            </div>
+        </div>
+ 
+        <!-- ================= PLAYER BAR ================= -->
+        <div class="music-player">
+ 
+            <div class="now-playing">
+                <img class="np-cover" id="npCover" src="" alt="">
+                <div class="np-info">
+                    <p class="np-title" id="npTitle">No song playing</p>
+                    <p class="np-artist" id="npArtist">Pick a track to start</p>
+                </div>
+                <i class="fa-regular fa-heart np-like" id="npLike" title="Save to Your Library"></i>
+            </div>
+ 
+            <div class="player">
+                <div class="Player-controls">
+                    <i class="fa-solid fa-shuffle player-control-icon" id="shuffleBtn" title="Shuffle"></i>
+                    <i class="fa-solid fa-backward-step player-control-icon" id="prevBtn" title="Previous"></i>
+                    <i class="fa-solid fa-circle-play player-control-icon play-btn" id="playBtn" title="Play"></i>
+                    <i class="fa-solid fa-forward-step player-control-icon" id="nextBtn" title="Next"></i>
+                    <i class="fa-solid fa-repeat player-control-icon" id="repeatBtn" title="Repeat"></i>
+                </div>
+ 
+                <div class="Playback-bar">
+                    <span class="curr-time" id="currTime">00:00</span>
+                    <input type="range" min="0" max="100" step="1" value="0" class="progress-bar" id="progressBar">
+                    <span class="tot-time" id="totTime">00:00</span>
+                </div>
+            </div>
+ 
+            <div class="controls">
+                <i class="fa-solid fa-microphone control-icon" title="Lyrics"></i>
+                <i class="fa-solid fa-list-ul control-icon" id="queueBtn" title="Queue"></i>
+                <i class="fa-solid fa-volume-high control-icon" id="volIcon" title="Mute"></i>
+                <input type="range" min="0" max="100" value="70" class="volume-bar" id="volumeBar">
+            </div>
+        </div>
+ 
+        <!-- ================= QUEUE PANEL ================= -->
+        <div class="queue-panel" id="queuePanel">
+            <div class="queue-header">
+                <h3>Queue</h3>
+                <i class="fa-solid fa-xmark" id="closeQueue"></i>
+            </div>
+            <div class="queue-now">
+                <p class="queue-label">Now playing</p>
+                <div class="queue-item current" id="queueNowItem"></div>
+            </div>
+            <p class="queue-label">Next up</p>
+            <div id="queueList" class="queue-list"></div>
+        </div>
+ 
+        <!-- toast notifications -->
+        <div class="toast" id="toast"></div>
+    </div>
+ 
+    <script src="./app.js"></script>
+</body>
+</html>
